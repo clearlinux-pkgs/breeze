@@ -6,7 +6,7 @@
 #
 Name     : breeze
 Version  : 5.13.4
-Release  : 2
+Release  : 4
 URL      : https://download.kde.org/stable/plasma/5.13.4/breeze-5.13.4.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.13.4/breeze-5.13.4.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.13.4/breeze-5.13.4.tar.xz.sig
@@ -30,6 +30,7 @@ BuildRequires : pkg-config
 BuildRequires : pkgconfig(x11-xcb)
 BuildRequires : pkgconfig(xcb)
 BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtx11extras-dev
 
 %description
 Building the Bridge Icon set from the Inkscape SVG:
@@ -102,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535159354
+export SOURCE_DATE_EPOCH=1535691691
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -110,7 +111,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535159354
+export SOURCE_DATE_EPOCH=1535691691
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/breeze
 cp COPYING %{buildroot}/usr/share/doc/breeze/COPYING
