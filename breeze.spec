@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.13.4
-Release  : 4
-URL      : https://download.kde.org/stable/plasma/5.13.4/breeze-5.13.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.13.4/breeze-5.13.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.13.4/breeze-5.13.4.tar.xz.sig
+Version  : 5.13.5
+Release  : 5
+URL      : https://download.kde.org/stable/plasma/5.13.5/breeze-5.13.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.13.5/breeze-5.13.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.13.5/breeze-5.13.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-3.0
@@ -22,10 +22,7 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : frameworkintegration-dev
 BuildRequires : kdecoration-dev
-BuildRequires : kguiaddons-dev
-BuildRequires : kpackage-dev
 BuildRequires : kwayland-dev
-BuildRequires : kwindowsystem-dev
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(x11-xcb)
 BuildRequires : pkgconfig(xcb)
@@ -33,11 +30,9 @@ BuildRequires : qtbase-dev qtbase-extras mesa-dev
 BuildRequires : qtx11extras-dev
 
 %description
-Building the Bridge Icon set from the Inkscape SVG:
-1. Ensure you have inkscape and xcursorgen installed.
-2. Run build.sh in a terminal. The script may take several minutes.
-3. Copy the folder created by the script (should match the name of the theme)
-to your cursors folder.
+Printer test page
+Can be used by cups by replacing
+/usr/share/cups/data/default-testpage.pdf
 
 %package bin
 Summary: bin components for the breeze package.
@@ -96,14 +91,14 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.13.4
+%setup -q -n breeze-5.13.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535691691
+export SOURCE_DATE_EPOCH=1536085900
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -111,7 +106,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535691691
+export SOURCE_DATE_EPOCH=1536085900
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/breeze
 cp COPYING %{buildroot}/usr/share/doc/breeze/COPYING
