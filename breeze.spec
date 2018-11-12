@@ -6,7 +6,7 @@
 #
 Name     : breeze
 Version  : 5.14.3
-Release  : 9
+Release  : 10
 URL      : https://download.kde.org/stable/plasma/5.14.3/breeze-5.14.3.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.14.3/breeze-5.14.3.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.14.3/breeze-5.14.3.tar.xz.sig
@@ -24,11 +24,15 @@ BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-
 BuildRequires : fftw-dev
 BuildRequires : frameworkintegration-dev
 BuildRequires : kdecoration-dev
+BuildRequires : kguiaddons-dev
+BuildRequires : kpackage-dev
 BuildRequires : kwayland-dev
+BuildRequires : kwindowsystem-dev
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(x11-xcb)
 BuildRequires : pkgconfig(xcb)
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : qtx11extras-dev
 
 %description
 Printer test page
@@ -107,7 +111,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541530176
+export SOURCE_DATE_EPOCH=1542061132
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -115,7 +119,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1541530176
+export SOURCE_DATE_EPOCH=1542061132
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
 cp COPYING %{buildroot}/usr/share/package-licenses/breeze/COPYING
@@ -136,7 +140,6 @@ popd
 %files abi
 %defattr(-,root,root,-)
 /usr/share/abi/libbreezecommon5.so.5.14.3.abi
-/usr/share/abi/libbreezecommon5.so.5.abi
 
 %files bin
 %defattr(-,root,root,-)
