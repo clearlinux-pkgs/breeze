@@ -6,7 +6,7 @@
 #
 Name     : breeze
 Version  : 5.14.3
-Release  : 11
+Release  : 12
 URL      : https://download.kde.org/stable/plasma/5.14.3/breeze-5.14.3.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.14.3/breeze-5.14.3.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.14.3/breeze-5.14.3.tar.xz.sig
@@ -38,14 +38,6 @@ BuildRequires : qtx11extras-dev
 Printer test page
 Can be used by cups by replacing
 /usr/share/cups/data/default-testpage.pdf
-
-%package abi
-Summary: abi components for the breeze package.
-Group: Default
-
-%description abi
-abi components for the breeze package.
-
 
 %package bin
 Summary: bin components for the breeze package.
@@ -111,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1542072182
+export SOURCE_DATE_EPOCH=1542676658
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -119,7 +111,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1542072182
+export SOURCE_DATE_EPOCH=1542676658
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
 cp COPYING %{buildroot}/usr/share/package-licenses/breeze/COPYING
@@ -136,10 +128,6 @@ popd
 %files
 %defattr(-,root,root,-)
 /usr/lib64/kconf_update_bin/kde4breeze
-
-%files abi
-%defattr(-,root,root,-)
-/usr/share/abi/libbreezecommon5.so.5.abi
 
 %files bin
 %defattr(-,root,root,-)
