@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.14.4
-Release  : 13
-URL      : https://download.kde.org/stable/plasma/5.14.4/breeze-5.14.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.14.4/breeze-5.14.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.14.4/breeze-5.14.4.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 5.14.5
+Release  : 14
+URL      : https://download.kde.org/stable/plasma/5.14.5/breeze-5.14.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.14.5/breeze-5.14.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.14.5/breeze-5.14.5.tar.xz.sig
+Summary  : Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-3.0
 Requires: breeze-bin = %{version}-%{release}
@@ -31,11 +31,9 @@ BuildRequires : pkgconfig(xcb)
 BuildRequires : qtbase-dev mesa-dev
 
 %description
-Building the Bridge Icon set from the Inkscape SVG:
-1. Ensure you have inkscape and xcursorgen installed.
-2. Run build.sh in a terminal. The script may take several minutes.
-3. Copy the folder created by the script (should match the name of the theme)
-to your cursors folder.
+Printer test page
+Can be used by cups by replacing
+/usr/share/cups/data/default-testpage.pdf
 
 %package bin
 Summary: bin components for the breeze package.
@@ -94,22 +92,22 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.14.4
+%setup -q -n breeze-5.14.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1543391260
+export SOURCE_DATE_EPOCH=1546961994
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1543391260
+export SOURCE_DATE_EPOCH=1546961994
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
 cp COPYING %{buildroot}/usr/share/package-licenses/breeze/COPYING
@@ -392,7 +390,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.14.4
+/usr/lib64/libbreezecommon5.so.5.14.5
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
