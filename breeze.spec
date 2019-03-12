@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.15.2
-Release  : 19
-URL      : https://download.kde.org/stable/plasma/5.15.2/breeze-5.15.2.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.2/breeze-5.15.2.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.2/breeze-5.15.2.tar.xz.sig
+Version  : 5.15.3
+Release  : 20
+URL      : https://download.kde.org/stable/plasma/5.15.3/breeze-5.15.3.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.3/breeze-5.15.3.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.3/breeze-5.15.3.tar.xz.sig
 Summary  : Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-3.0
@@ -93,22 +93,23 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.15.2
+%setup -q -n breeze-5.15.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551198156
+export SOURCE_DATE_EPOCH=1552407152
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1551198156
+export SOURCE_DATE_EPOCH=1552407152
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
 cp COPYING %{buildroot}/usr/share/package-licenses/breeze/COPYING
@@ -392,7 +393,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.15.2
+/usr/lib64/libbreezecommon5.so.5.15.3
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
