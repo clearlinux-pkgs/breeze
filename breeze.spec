@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.15.4.1
-Release  : 24
-URL      : https://download.kde.org/stable/plasma/5.15.4/breeze-5.15.4.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.4/breeze-5.15.4.1.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.4/breeze-5.15.4.1.tar.xz.sig
+Version  : 5.15.5
+Release  : 25
+URL      : https://download.kde.org/stable/plasma/5.15.5/breeze-5.15.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.5/breeze-5.15.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.5/breeze-5.15.5.tar.xz.sig
 Summary  : Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-3.0
@@ -24,15 +24,11 @@ BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-
 BuildRequires : fftw-dev
 BuildRequires : frameworkintegration-dev
 BuildRequires : kdecoration-dev
-BuildRequires : kguiaddons-dev
-BuildRequires : kpackage-dev
 BuildRequires : kwayland-dev
-BuildRequires : kwindowsystem-dev
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(x11-xcb)
 BuildRequires : pkgconfig(xcb)
 BuildRequires : qtbase-dev mesa-dev
-BuildRequires : qtx11extras-dev
 
 %description
 Printer test page
@@ -64,6 +60,7 @@ Requires: breeze-lib = %{version}-%{release}
 Requires: breeze-bin = %{version}-%{release}
 Requires: breeze-data = %{version}-%{release}
 Provides: breeze-devel = %{version}-%{release}
+Requires: breeze = %{version}-%{release}
 Requires: breeze = %{version}-%{release}
 
 %description dev
@@ -97,14 +94,14 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.15.4.1
+%setup -q -n breeze-5.15.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1556996100
+export SOURCE_DATE_EPOCH=1557245533
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -119,7 +116,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1556996100
+export SOURCE_DATE_EPOCH=1557245533
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
 cp COPYING %{buildroot}/usr/share/package-licenses/breeze/COPYING
@@ -403,7 +400,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.15.4
+/usr/lib64/libbreezecommon5.so.5.15.5
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
