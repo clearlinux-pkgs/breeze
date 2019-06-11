@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.15.5
-Release  : 25
-URL      : https://download.kde.org/stable/plasma/5.15.5/breeze-5.15.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.5/breeze-5.15.5.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.5/breeze-5.15.5.tar.xz.sig
+Version  : 5.16.0
+Release  : 26
+URL      : https://download.kde.org/stable/plasma/5.16.0/breeze-5.16.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.0/breeze-5.16.0.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.16.0/breeze-5.16.0.tar.xz.sig
 Summary  : Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-3.0
@@ -94,14 +94,14 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.15.5
+%setup -q -n breeze-5.16.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557245533
+export SOURCE_DATE_EPOCH=1560263313
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -116,7 +116,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557245533
+export SOURCE_DATE_EPOCH=1560263313
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
 cp COPYING %{buildroot}/usr/share/package-licenses/breeze/COPYING
@@ -380,7 +380,6 @@ popd
 /usr/share/wallpapers/Next/contents/images/1366x768.png
 /usr/share/wallpapers/Next/contents/images/1440x900.png
 /usr/share/wallpapers/Next/contents/images/1600x1200.png
-/usr/share/wallpapers/Next/contents/images/1638x1024.png
 /usr/share/wallpapers/Next/contents/images/1680x1050.png
 /usr/share/wallpapers/Next/contents/images/1920x1080.png
 /usr/share/wallpapers/Next/contents/images/1920x1200.png
@@ -389,6 +388,7 @@ popd
 /usr/share/wallpapers/Next/contents/images/3200x1800.png
 /usr/share/wallpapers/Next/contents/images/3200x2000.png
 /usr/share/wallpapers/Next/contents/images/3840x2160.png
+/usr/share/wallpapers/Next/contents/images/5120x2880.png
 /usr/share/wallpapers/Next/contents/screenshot.png
 /usr/share/wallpapers/Next/metadata.desktop
 
@@ -400,7 +400,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.15.5
+/usr/lib64/libbreezecommon5.so.5.16.0
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
