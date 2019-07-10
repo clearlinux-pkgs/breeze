@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.16.2
-Release  : 28
-URL      : https://download.kde.org/stable/plasma/5.16.2/breeze-5.16.2.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.2/breeze-5.16.2.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.16.2/breeze-5.16.2.tar.xz.sig
+Version  : 5.16.3
+Release  : 29
+URL      : https://download.kde.org/stable/plasma/5.16.3/breeze-5.16.3.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.3/breeze-5.16.3.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.16.3/breeze-5.16.3.tar.xz.sig
 Summary  : Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-3.0
@@ -94,14 +94,14 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.16.2
+%setup -q -n breeze-5.16.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1561478629
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562722833
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -113,11 +113,11 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1561478629
+export SOURCE_DATE_EPOCH=1562722833
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
 cp COPYING %{buildroot}/usr/share/package-licenses/breeze/COPYING
@@ -401,7 +401,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.16.2
+/usr/lib64/libbreezecommon5.so.5.16.3
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
