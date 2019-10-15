@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.16.5
-Release  : 31
-URL      : https://download.kde.org/stable/plasma/5.16.5/breeze-5.16.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.5/breeze-5.16.5.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.5/breeze-5.16.5.tar.xz.sig
+Version  : 5.17.0
+Release  : 32
+URL      : https://download.kde.org/stable/plasma/5.17.0/breeze-5.17.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.0/breeze-5.17.0.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.0/breeze-5.17.0.tar.xz.sig
 Summary  : Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-3.0
@@ -94,14 +94,14 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.16.5
+%setup -q -n breeze-5.17.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567638376
+export SOURCE_DATE_EPOCH=1571151806
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -114,18 +114,18 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1567638376
+export SOURCE_DATE_EPOCH=1571151806
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
-cp COPYING %{buildroot}/usr/share/package-licenses/breeze/COPYING
-cp cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/cursors_Breeze_COPYING
-cp cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/cursors_Breeze_COPYING-ICONS
-cp cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/cursors_Breeze_Snow_COPYING
-cp cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/cursors_Breeze_Snow_COPYING-ICONS
+cp %{_builddir}/breeze-5.17.0/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.17.0/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.17.0/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.17.0/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.17.0/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
 pushd clr-build
 %make_install
 popd
@@ -402,53 +402,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.16.5
+/usr/lib64/libbreezecommon5.so.5.17.0
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/ApplicationWindowStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/Breeze.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/BusyIndicatorStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/ButtonStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/CheckBoxIndicator.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/CheckBoxStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/ColorUtils.js
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/ComboBoxStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/DemoPage1.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/DemoPage2.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/DemoPage3.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/DemoPage4.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/FocusFrameStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/GroupBoxStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/MenuBarStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/MenuStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/ProgressBarStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/RadioButtonIndicator.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/RadioButtonStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/ScrollArrow.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/ScrollBar.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/ScrollViewStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/SliderStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/SpinBoxStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/StatusBarStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/SwitchStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/TabViewStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/TableViewStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/TextAreaStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/TextFieldBackground.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/TextFieldStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/ToolBarStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/ToolButtonStyle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/Triangle.qml
-/usr/lib64/qt5/qml/QtQuick/Controls/Styles/Breeze/qmldir
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/breeze/COPYING
-/usr/share/package-licenses/breeze/cursors_Breeze_COPYING
-/usr/share/package-licenses/breeze/cursors_Breeze_COPYING-ICONS
-/usr/share/package-licenses/breeze/cursors_Breeze_Snow_COPYING
-/usr/share/package-licenses/breeze/cursors_Breeze_Snow_COPYING-ICONS
+/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
 
 %files locales -f breeze_kwin_deco.lang -f breeze_style_config.lang
 %defattr(-,root,root,-)
