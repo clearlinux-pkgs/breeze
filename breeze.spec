@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.17.4
-Release  : 37
-URL      : https://download.kde.org/stable/plasma/5.17.4/breeze-5.17.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.17.4/breeze-5.17.4.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.17.4/breeze-5.17.4.tar.xz.sig
+Version  : 5.17.5
+Release  : 38
+URL      : https://download.kde.org/stable/plasma/5.17.5/breeze-5.17.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.5/breeze-5.17.5.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.17.5/breeze-5.17.5.tar.xz.sig
 Summary  : Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-3.0
@@ -94,15 +94,15 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.17.4
-cd %{_builddir}/breeze-5.17.4
+%setup -q -n breeze-5.17.5
+cd %{_builddir}/breeze-5.17.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1575388453
+export SOURCE_DATE_EPOCH=1578423291
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -119,14 +119,14 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1575388453
+export SOURCE_DATE_EPOCH=1578423291
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
-cp %{_builddir}/breeze-5.17.4/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.17.4/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.17.4/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
-cp %{_builddir}/breeze-5.17.4/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.17.4/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.17.5/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.17.5/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.17.5/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.17.5/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.17.5/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
 pushd clr-build
 %make_install
 popd
@@ -403,7 +403,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.17.4
+/usr/lib64/libbreezecommon5.so.5.17.5
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
