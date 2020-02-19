@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.18.0
-Release  : 39
-URL      : https://download.kde.org/stable/plasma/5.18.0/breeze-5.18.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.0/breeze-5.18.0.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.0/breeze-5.18.0.tar.xz.sig
+Version  : 5.18.1
+Release  : 40
+URL      : https://download.kde.org/stable/plasma/5.18.1/breeze-5.18.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.1/breeze-5.18.1.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.1/breeze-5.18.1.tar.xz.sig
 Summary  : Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-3.0
@@ -94,15 +94,15 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.18.0
-cd %{_builddir}/breeze-5.18.0
+%setup -q -n breeze-5.18.1
+cd %{_builddir}/breeze-5.18.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581440156
+export SOURCE_DATE_EPOCH=1582075719
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -119,14 +119,14 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1581440156
+export SOURCE_DATE_EPOCH=1582075719
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
-cp %{_builddir}/breeze-5.18.0/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.18.0/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.18.0/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
-cp %{_builddir}/breeze-5.18.0/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.18.0/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.18.1/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.18.1/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.18.1/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.18.1/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.18.1/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
 pushd clr-build
 %make_install
 popd
@@ -194,6 +194,8 @@ popd
 /usr/share/icons/Breeze_Snow/cursors/fcf21c00b30f7e3f83fe0dfd12e71cff
 /usr/share/icons/Breeze_Snow/cursors/fleur
 /usr/share/icons/Breeze_Snow/cursors/forbidden
+/usr/share/icons/Breeze_Snow/cursors/grab
+/usr/share/icons/Breeze_Snow/cursors/grabbing
 /usr/share/icons/Breeze_Snow/cursors/h_double_arrow
 /usr/share/icons/Breeze_Snow/cursors/half-busy
 /usr/share/icons/Breeze_Snow/cursors/hand1
@@ -307,6 +309,8 @@ popd
 /usr/share/icons/breeze_cursors/cursors/fcf21c00b30f7e3f83fe0dfd12e71cff
 /usr/share/icons/breeze_cursors/cursors/fleur
 /usr/share/icons/breeze_cursors/cursors/forbidden
+/usr/share/icons/breeze_cursors/cursors/grab
+/usr/share/icons/breeze_cursors/cursors/grabbing
 /usr/share/icons/breeze_cursors/cursors/h_double_arrow
 /usr/share/icons/breeze_cursors/cursors/half-busy
 /usr/share/icons/breeze_cursors/cursors/hand1
@@ -411,7 +415,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.18.0
+/usr/lib64/libbreezecommon5.so.5.18.1
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
