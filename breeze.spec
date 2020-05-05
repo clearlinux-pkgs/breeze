@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.18.4.1
-Release  : 43
-URL      : https://download.kde.org/stable/plasma/5.18.4/breeze-5.18.4.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.4/breeze-5.18.4.1.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.4/breeze-5.18.4.1.tar.xz.sig
-Summary  : Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
+Version  : 5.18.5
+Release  : 44
+URL      : https://download.kde.org/stable/plasma/5.18.5/breeze-5.18.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.5/breeze-5.18.5.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.5/breeze-5.18.5.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-3.0
 Requires: breeze-bin = %{version}-%{release}
@@ -21,9 +21,13 @@ Requires: breeze-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-image-dev xcb-util-keysyms-dev xcb-util-renderutil-dev xcb-util-wm-dev xcb-util-dev
+BuildRequires : extra-cmake-modules-data
 BuildRequires : fftw-dev
 BuildRequires : frameworkintegration-dev
+BuildRequires : kcmutils-dev
 BuildRequires : kdecoration-dev
+BuildRequires : ki18n-dev
+BuildRequires : kpackage-dev
 BuildRequires : kwayland-dev
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(x11-xcb)
@@ -31,9 +35,11 @@ BuildRequires : pkgconfig(xcb)
 BuildRequires : qtbase-dev mesa-dev
 
 %description
-Printer test page
-Can be used by cups by replacing
-/usr/share/cups/data/default-testpage.pdf
+Building the Bridge Icon set from the Inkscape SVG:
+1. Ensure you have inkscape and xcursorgen installed.
+2. Run build.sh in a terminal. The script may take several minutes.
+3. Copy the folder created by the script (should match the name of the theme)
+to your cursors folder.
 
 %package bin
 Summary: bin components for the breeze package.
@@ -60,7 +66,6 @@ Requires: breeze-lib = %{version}-%{release}
 Requires: breeze-bin = %{version}-%{release}
 Requires: breeze-data = %{version}-%{release}
 Provides: breeze-devel = %{version}-%{release}
-Requires: breeze = %{version}-%{release}
 Requires: breeze = %{version}-%{release}
 
 %description dev
@@ -94,39 +99,38 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.18.4.1
-cd %{_builddir}/breeze-5.18.4.1
+%setup -q -n breeze-5.18.5
+cd %{_builddir}/breeze-5.18.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585673533
+export SOURCE_DATE_EPOCH=1588709639
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1585673533
+export SOURCE_DATE_EPOCH=1588709639
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
-cp %{_builddir}/breeze-5.18.4.1/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.18.4.1/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.18.4.1/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
-cp %{_builddir}/breeze-5.18.4.1/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.18.4.1/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.18.5/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.18.5/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.18.5/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.18.5/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.18.5/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
 pushd clr-build
 %make_install
 popd
@@ -415,7 +419,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.18.4
+/usr/lib64/libbreezecommon5.so.5.18.5
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
