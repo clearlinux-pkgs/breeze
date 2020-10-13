@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.19.4
-Release  : 48
-URL      : https://download.kde.org/stable/plasma/5.19.4/breeze-5.19.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.19.4/breeze-5.19.4.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.19.4/breeze-5.19.4.tar.xz.sig
+Version  : 5.20.0
+Release  : 49
+URL      : https://download.kde.org/stable/plasma/5.20.0/breeze-5.20.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.20.0/breeze-5.20.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.20.0/breeze-5.20.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GPL-2.0 LGPL-3.0
+License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0 MIT
 Requires: breeze-bin = %{version}-%{release}
 Requires: breeze-data = %{version}-%{release}
 Requires: breeze-lib = %{version}-%{release}
@@ -28,7 +28,6 @@ BuildRequires : kcmutils-dev
 BuildRequires : kdecoration-dev
 BuildRequires : ki18n-dev
 BuildRequires : kpackage-dev
-BuildRequires : kwayland-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -96,15 +95,15 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.19.4
-cd %{_builddir}/breeze-5.19.4
+%setup -q -n breeze-5.20.0
+cd %{_builddir}/breeze-5.20.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1597629186
+export SOURCE_DATE_EPOCH=1602633316
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -120,14 +119,20 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1597629186
+export SOURCE_DATE_EPOCH=1602633316
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
-cp %{_builddir}/breeze-5.19.4/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.19.4/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.19.4/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
-cp %{_builddir}/breeze-5.19.4/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.19.4/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.20.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/breeze/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/breeze-5.20.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/breeze/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/breeze-5.20.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/breeze/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/breeze-5.20.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/breeze/6091db0aead0d90182b93d3c0d09ba93d188f907
+cp %{_builddir}/breeze-5.20.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/breeze/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/breeze-5.20.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/breeze/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/breeze-5.20.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/breeze/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+cp %{_builddir}/breeze-5.20.0/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.20.0/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.20.0/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.20.0/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
 pushd clr-build
 %make_install
 popd
@@ -391,6 +396,7 @@ popd
 /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/metadata.desktop
 /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/metadata.json
 /usr/share/wallpapers/Next/contents/images/1024x768.jpg
+/usr/share/wallpapers/Next/contents/images/1080x1920.jpg
 /usr/share/wallpapers/Next/contents/images/1280x1024.jpg
 /usr/share/wallpapers/Next/contents/images/1280x800.jpg
 /usr/share/wallpapers/Next/contents/images/1366x768.jpg
@@ -407,6 +413,8 @@ popd
 /usr/share/wallpapers/Next/contents/images/3840x2160.jpg
 /usr/share/wallpapers/Next/contents/images/5120x2880.jpg
 /usr/share/wallpapers/Next/contents/images/720x1440.jpg
+/usr/share/wallpapers/Next/contents/images/base_size.jpg
+/usr/share/wallpapers/Next/contents/images/vertical_base_size.jpg
 /usr/share/wallpapers/Next/contents/screenshot.png
 /usr/share/wallpapers/Next/metadata.desktop
 
@@ -418,15 +426,21 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.19.4
+/usr/lib64/libbreezecommon5.so.5.20.0
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
 
 %files license
 %defattr(0644,root,root,0755)
+/usr/share/package-licenses/breeze/2a638514c87c4923c0570c55822620fad56f2a33
 /usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+/usr/share/package-licenses/breeze/6091db0aead0d90182b93d3c0d09ba93d188f907
 /usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+/usr/share/package-licenses/breeze/7d9831e05094ce723947d729c2a46a09d6e90275
+/usr/share/package-licenses/breeze/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+/usr/share/package-licenses/breeze/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+/usr/share/package-licenses/breeze/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 
 %files locales -f breeze_kwin_deco.lang -f breeze_style_config.lang
 %defattr(-,root,root,-)
