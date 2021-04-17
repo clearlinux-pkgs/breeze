@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.20.5
-Release  : 54
-URL      : https://download.kde.org/stable/plasma/5.20.5/breeze-5.20.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.20.5/breeze-5.20.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.20.5/breeze-5.20.5.tar.xz.sig
+Version  : 5.21.4
+Release  : 55
+URL      : https://download.kde.org/stable/plasma/5.21.4/breeze-5.21.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.21.4/breeze-5.21.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.21.4/breeze-5.21.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0 MIT
@@ -25,6 +25,7 @@ BuildRequires : extra-cmake-modules-data
 BuildRequires : fftw-dev
 BuildRequires : frameworkintegration-dev
 BuildRequires : kcmutils-dev
+BuildRequires : kconfigwidgets-dev
 BuildRequires : kdecoration-dev
 BuildRequires : ki18n-dev
 BuildRequires : kpackage-dev
@@ -95,15 +96,15 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.20.5
-cd %{_builddir}/breeze-5.20.5
+%setup -q -n breeze-5.21.4
+cd %{_builddir}/breeze-5.21.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1609864826
+export SOURCE_DATE_EPOCH=1618650047
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -119,20 +120,20 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1609864826
+export SOURCE_DATE_EPOCH=1618650047
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
-cp %{_builddir}/breeze-5.20.5/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/breeze/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/breeze-5.20.5/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/breeze/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/breeze-5.20.5/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/breeze/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/breeze-5.20.5/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/breeze/6091db0aead0d90182b93d3c0d09ba93d188f907
-cp %{_builddir}/breeze-5.20.5/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/breeze/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/breeze-5.20.5/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/breeze/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/breeze-5.20.5/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/breeze/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
-cp %{_builddir}/breeze-5.20.5/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.20.5/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
-cp %{_builddir}/breeze-5.20.5/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.20.5/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.21.4/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/breeze/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/breeze-5.21.4/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/breeze/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/breeze-5.21.4/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/breeze/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/breeze-5.21.4/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/breeze/6091db0aead0d90182b93d3c0d09ba93d188f907
+cp %{_builddir}/breeze-5.21.4/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/breeze/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/breeze-5.21.4/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/breeze/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/breeze-5.21.4/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/breeze/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+cp %{_builddir}/breeze-5.21.4/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.21.4/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.21.4/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.21.4/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
 pushd clr-build
 %make_install
 popd
@@ -141,6 +142,7 @@ popd
 
 %files
 %defattr(-,root,root,-)
+/usr/lib64/kconf_update_bin/breezetobreezelight
 /usr/lib64/kconf_update_bin/kde4breeze
 
 %files bin
@@ -385,36 +387,43 @@ popd
 /usr/share/icons/breeze_cursors/cursors/zoom-out
 /usr/share/icons/breeze_cursors/index.theme
 /usr/share/icons/hicolor/scalable/apps/breeze-settings.svgz
+/usr/share/kconf_update/breezetobreezelight.upd
 /usr/share/kconf_update/kde4breeze.upd
 /usr/share/kservices5/breezedecorationconfig.desktop
 /usr/share/kservices5/breezestyleconfig.desktop
 /usr/share/kstyle/themes/breeze.themerc
 /usr/share/metainfo/org.kde.breezedark.desktop.appdata.xml
+/usr/share/metainfo/org.kde.breezetwilight.desktop.appdata.xml
 /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/contents/defaults
 /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/contents/previews/fullscreenpreview.jpg
 /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/contents/previews/preview.png
 /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/metadata.desktop
 /usr/share/plasma/look-and-feel/org.kde.breezedark.desktop/metadata.json
-/usr/share/wallpapers/Next/contents/images/1024x768.jpg
-/usr/share/wallpapers/Next/contents/images/1080x1920.jpg
-/usr/share/wallpapers/Next/contents/images/1280x1024.jpg
-/usr/share/wallpapers/Next/contents/images/1280x800.jpg
-/usr/share/wallpapers/Next/contents/images/1366x768.jpg
-/usr/share/wallpapers/Next/contents/images/1440x900.jpg
-/usr/share/wallpapers/Next/contents/images/1600x1200.jpg
-/usr/share/wallpapers/Next/contents/images/1680x1050.jpg
-/usr/share/wallpapers/Next/contents/images/1920x1080.jpg
-/usr/share/wallpapers/Next/contents/images/1920x1200.jpg
-/usr/share/wallpapers/Next/contents/images/2560x1440.jpg
-/usr/share/wallpapers/Next/contents/images/2560x1600.jpg
-/usr/share/wallpapers/Next/contents/images/3200x1800.jpg
-/usr/share/wallpapers/Next/contents/images/3200x2000.jpg
-/usr/share/wallpapers/Next/contents/images/360x720.jpg
-/usr/share/wallpapers/Next/contents/images/3840x2160.jpg
-/usr/share/wallpapers/Next/contents/images/5120x2880.jpg
-/usr/share/wallpapers/Next/contents/images/720x1440.jpg
-/usr/share/wallpapers/Next/contents/images/base_size.jpg
-/usr/share/wallpapers/Next/contents/images/vertical_base_size.jpg
+/usr/share/plasma/look-and-feel/org.kde.breezetwilight.desktop/contents/defaults
+/usr/share/plasma/look-and-feel/org.kde.breezetwilight.desktop/contents/previews/fullscreenpreview.jpg
+/usr/share/plasma/look-and-feel/org.kde.breezetwilight.desktop/contents/previews/preview.png
+/usr/share/plasma/look-and-feel/org.kde.breezetwilight.desktop/metadata.desktop
+/usr/share/plasma/look-and-feel/org.kde.breezetwilight.desktop/metadata.json
+/usr/share/wallpapers/Next/contents/images/1024x768.png
+/usr/share/wallpapers/Next/contents/images/1080x1920.png
+/usr/share/wallpapers/Next/contents/images/1280x1024.png
+/usr/share/wallpapers/Next/contents/images/1280x800.png
+/usr/share/wallpapers/Next/contents/images/1366x768.png
+/usr/share/wallpapers/Next/contents/images/1440x900.png
+/usr/share/wallpapers/Next/contents/images/1600x1200.png
+/usr/share/wallpapers/Next/contents/images/1680x1050.png
+/usr/share/wallpapers/Next/contents/images/1920x1080.png
+/usr/share/wallpapers/Next/contents/images/1920x1200.png
+/usr/share/wallpapers/Next/contents/images/2560x1440.png
+/usr/share/wallpapers/Next/contents/images/2560x1600.png
+/usr/share/wallpapers/Next/contents/images/3200x1800.png
+/usr/share/wallpapers/Next/contents/images/3200x2000.png
+/usr/share/wallpapers/Next/contents/images/360x720.png
+/usr/share/wallpapers/Next/contents/images/3840x2160.png
+/usr/share/wallpapers/Next/contents/images/5120x2880.png
+/usr/share/wallpapers/Next/contents/images/720x1440.png
+/usr/share/wallpapers/Next/contents/images/base_size.png
+/usr/share/wallpapers/Next/contents/images/vertical_base_size.png
 /usr/share/wallpapers/Next/contents/screenshot.png
 /usr/share/wallpapers/Next/metadata.desktop
 
@@ -426,7 +435,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.20.5
+/usr/lib64/libbreezecommon5.so.5.21.4
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
