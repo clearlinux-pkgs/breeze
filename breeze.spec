@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.21.4
-Release  : 55
-URL      : https://download.kde.org/stable/plasma/5.21.4/breeze-5.21.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.21.4/breeze-5.21.4.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.21.4/breeze-5.21.4.tar.xz.sig
+Version  : 5.22.0
+Release  : 56
+URL      : https://download.kde.org/stable/plasma/5.22.0/breeze-5.22.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.22.0/breeze-5.22.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.22.0/breeze-5.22.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0 MIT
@@ -96,15 +96,15 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.21.4
-cd %{_builddir}/breeze-5.21.4
+%setup -q -n breeze-5.22.0
+cd %{_builddir}/breeze-5.22.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618650047
+export SOURCE_DATE_EPOCH=1623288467
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -120,20 +120,20 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1618650047
+export SOURCE_DATE_EPOCH=1623288467
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
-cp %{_builddir}/breeze-5.21.4/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/breeze/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/breeze-5.21.4/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/breeze/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/breeze-5.21.4/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/breeze/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/breeze-5.21.4/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/breeze/6091db0aead0d90182b93d3c0d09ba93d188f907
-cp %{_builddir}/breeze-5.21.4/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/breeze/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/breeze-5.21.4/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/breeze/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/breeze-5.21.4/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/breeze/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
-cp %{_builddir}/breeze-5.21.4/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.21.4/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
-cp %{_builddir}/breeze-5.21.4/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/breeze-5.21.4/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.22.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/breeze/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/breeze-5.22.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/breeze/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/breeze-5.22.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/breeze/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/breeze-5.22.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/breeze/6091db0aead0d90182b93d3c0d09ba93d188f907
+cp %{_builddir}/breeze-5.22.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/breeze/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/breeze-5.22.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/breeze/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/breeze-5.22.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/breeze/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+cp %{_builddir}/breeze-5.22.0/cursors/Breeze/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.22.0/cursors/Breeze/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
+cp %{_builddir}/breeze-5.22.0/cursors/Breeze_Snow/COPYING %{buildroot}/usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/breeze-5.22.0/cursors/Breeze_Snow/COPYING-ICONS %{buildroot}/usr/share/package-licenses/breeze/4da8b3e7cf68bdf289e59afa90e3483c83bb6824
 pushd clr-build
 %make_install
 popd
@@ -435,7 +435,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.21.4
+/usr/lib64/libbreezecommon5.so.5.22.0
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
