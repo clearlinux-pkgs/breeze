@@ -4,7 +4,7 @@
 #
 Name     : breeze
 Version  : 5.23.0
-Release  : 59
+Release  : 60
 URL      : https://download.kde.org/stable/plasma/5.23.0/breeze-5.23.0.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.23.0/breeze-5.23.0.tar.xz
 Summary  : No detailed summary available
