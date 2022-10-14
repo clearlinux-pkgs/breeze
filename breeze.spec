@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.25.5
-Release  : 77
-URL      : https://download.kde.org/stable/plasma/5.25.5/breeze-5.25.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.25.5/breeze-5.25.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.25.5/breeze-5.25.5.tar.xz.sig
+Version  : 5.26.0
+Release  : 78
+URL      : https://download.kde.org/stable/plasma/5.26.0/breeze-5.26.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.26.0/breeze-5.26.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.26.0/breeze-5.26.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0 MIT
+License  : BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-3.0 MIT
 Requires: breeze-bin = %{version}-%{release}
 Requires: breeze-data = %{version}-%{release}
 Requires: breeze-lib = %{version}-%{release}
@@ -94,15 +94,15 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.25.5
-cd %{_builddir}/breeze-5.25.5
+%setup -q -n breeze-5.26.0
+cd %{_builddir}/breeze-5.26.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662500966
+export SOURCE_DATE_EPOCH=1665713123
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -118,10 +118,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1662500966
+export SOURCE_DATE_EPOCH=1665713123
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
 cp %{_builddir}/breeze-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/breeze/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
+cp %{_builddir}/breeze-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/breeze/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
 cp %{_builddir}/breeze-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/breeze/2a638514c87c4923c0570c55822620fad56f2a33 || :
 cp %{_builddir}/breeze-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/breeze/e712eadfab0d2357c0f50f599ef35ee0d87534cb || :
 cp %{_builddir}/breeze-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/breeze/6091db0aead0d90182b93d3c0d09ba93d188f907 || :
@@ -393,27 +394,45 @@ popd
 /usr/share/kservices5/breezedecorationconfig.desktop
 /usr/share/kservices5/breezestyleconfig.desktop
 /usr/share/kstyle/themes/breeze.themerc
-/usr/share/wallpapers/Next/contents/images/1024x768.jpg
-/usr/share/wallpapers/Next/contents/images/1080x1920.jpg
-/usr/share/wallpapers/Next/contents/images/1280x1024.jpg
-/usr/share/wallpapers/Next/contents/images/1280x800.jpg
-/usr/share/wallpapers/Next/contents/images/1366x768.jpg
-/usr/share/wallpapers/Next/contents/images/1440x900.jpg
-/usr/share/wallpapers/Next/contents/images/1600x1200.jpg
-/usr/share/wallpapers/Next/contents/images/1680x1050.jpg
-/usr/share/wallpapers/Next/contents/images/1920x1080.jpg
-/usr/share/wallpapers/Next/contents/images/1920x1200.jpg
-/usr/share/wallpapers/Next/contents/images/2560x1440.jpg
-/usr/share/wallpapers/Next/contents/images/2560x1600.jpg
-/usr/share/wallpapers/Next/contents/images/3200x1800.jpg
-/usr/share/wallpapers/Next/contents/images/3200x2000.jpg
-/usr/share/wallpapers/Next/contents/images/360x720.jpg
-/usr/share/wallpapers/Next/contents/images/3840x2160.jpg
-/usr/share/wallpapers/Next/contents/images/440x247.jpg
-/usr/share/wallpapers/Next/contents/images/5120x2880.jpg
-/usr/share/wallpapers/Next/contents/images/720x1440.jpg
-/usr/share/wallpapers/Next/contents/screenshot.png
-/usr/share/wallpapers/Next/metadata.desktop
+/usr/share/wallpapers/Next/contents/images/1024x768.png
+/usr/share/wallpapers/Next/contents/images/1080x1920.png
+/usr/share/wallpapers/Next/contents/images/1280x1024.png
+/usr/share/wallpapers/Next/contents/images/1280x800.png
+/usr/share/wallpapers/Next/contents/images/1366x768.png
+/usr/share/wallpapers/Next/contents/images/1440x900.png
+/usr/share/wallpapers/Next/contents/images/1600x1200.png
+/usr/share/wallpapers/Next/contents/images/1680x1050.png
+/usr/share/wallpapers/Next/contents/images/1920x1080.png
+/usr/share/wallpapers/Next/contents/images/1920x1200.png
+/usr/share/wallpapers/Next/contents/images/2560x1440.png
+/usr/share/wallpapers/Next/contents/images/2560x1600.png
+/usr/share/wallpapers/Next/contents/images/3200x1800.png
+/usr/share/wallpapers/Next/contents/images/3200x2000.png
+/usr/share/wallpapers/Next/contents/images/360x720.png
+/usr/share/wallpapers/Next/contents/images/3840x2160.png
+/usr/share/wallpapers/Next/contents/images/440x247.png
+/usr/share/wallpapers/Next/contents/images/5120x2880.png
+/usr/share/wallpapers/Next/contents/images/720x1440.png
+/usr/share/wallpapers/Next/contents/images_dark/1024x768.png
+/usr/share/wallpapers/Next/contents/images_dark/1080x1920.png
+/usr/share/wallpapers/Next/contents/images_dark/1280x1024.png
+/usr/share/wallpapers/Next/contents/images_dark/1280x800.png
+/usr/share/wallpapers/Next/contents/images_dark/1366x768.png
+/usr/share/wallpapers/Next/contents/images_dark/1440x900.png
+/usr/share/wallpapers/Next/contents/images_dark/1600x1200.png
+/usr/share/wallpapers/Next/contents/images_dark/1680x1050.png
+/usr/share/wallpapers/Next/contents/images_dark/1920x1080.png
+/usr/share/wallpapers/Next/contents/images_dark/1920x1200.png
+/usr/share/wallpapers/Next/contents/images_dark/2560x1440.png
+/usr/share/wallpapers/Next/contents/images_dark/2560x1600.png
+/usr/share/wallpapers/Next/contents/images_dark/3200x1800.png
+/usr/share/wallpapers/Next/contents/images_dark/3200x2000.png
+/usr/share/wallpapers/Next/contents/images_dark/360x720.png
+/usr/share/wallpapers/Next/contents/images_dark/3840x2160.png
+/usr/share/wallpapers/Next/contents/images_dark/440x247.png
+/usr/share/wallpapers/Next/contents/images_dark/5120x2880.png
+/usr/share/wallpapers/Next/contents/images_dark/720x1440.png
+/usr/share/wallpapers/Next/metadata.json
 
 %files dev
 %defattr(-,root,root,-)
@@ -423,7 +442,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.25.5
+/usr/lib64/libbreezecommon5.so.5.26.0
 /usr/lib64/qt5/plugins/kstyle_breeze_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/styles/breeze.so
@@ -435,6 +454,7 @@ popd
 /usr/share/package-licenses/breeze/6091db0aead0d90182b93d3c0d09ba93d188f907
 /usr/share/package-licenses/breeze/7c203dee3a03037da436df03c4b25b659c073976
 /usr/share/package-licenses/breeze/7d9831e05094ce723947d729c2a46a09d6e90275
+/usr/share/package-licenses/breeze/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 /usr/share/package-licenses/breeze/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
 /usr/share/package-licenses/breeze/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
 /usr/share/package-licenses/breeze/e712eadfab0d2357c0f50f599ef35ee0d87534cb
