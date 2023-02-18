@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.26.5
-Release  : 84
-URL      : https://download.kde.org/stable/plasma/5.26.5/breeze-5.26.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.26.5/breeze-5.26.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.26.5/breeze-5.26.5.tar.xz.sig
+Version  : 5.27.0
+Release  : 85
+URL      : https://download.kde.org/stable/plasma/5.27.0/breeze-5.27.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.0/breeze-5.27.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.0/breeze-5.27.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-3.0 MIT
@@ -20,7 +20,6 @@ Requires: breeze-license = %{version}-%{release}
 Requires: breeze-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-image-dev xcb-util-keysyms-dev xcb-util-renderutil-dev xcb-util-wm-dev xcb-util-dev
 BuildRequires : extra-cmake-modules-data
 BuildRequires : fftw-dev
 BuildRequires : frameworkintegration-dev
@@ -29,6 +28,9 @@ BuildRequires : kconfigwidgets-dev
 BuildRequires : kdecoration-dev
 BuildRequires : ki18n-dev
 BuildRequires : kirigami2-dev
+BuildRequires : kwindowsystem-dev
+BuildRequires : mesa-dev
+BuildRequires : pkgconfig(x11)
 BuildRequires : qtbase-dev mesa-dev
 # Suppress stripping binaries
 %define __strip /bin/true
@@ -97,15 +99,15 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.26.5
-cd %{_builddir}/breeze-5.26.5
+%setup -q -n breeze-5.27.0
+cd %{_builddir}/breeze-5.27.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1673291120
+export SOURCE_DATE_EPOCH=1676682758
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -121,7 +123,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1673291120
+export SOURCE_DATE_EPOCH=1676682758
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
 cp %{_builddir}/breeze-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/breeze/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
@@ -155,6 +157,8 @@ popd
 %files data
 %defattr(-,root,root,-)
 /usr/share/QtCurve/Breeze.qtcurve
+/usr/share/applications/breezestyleconfig.desktop
+/usr/share/applications/kcm_breezedecoration.desktop
 /usr/share/color-schemes/BreezeClassic.colors
 /usr/share/color-schemes/BreezeDark.colors
 /usr/share/color-schemes/BreezeLight.colors
@@ -394,8 +398,6 @@ popd
 /usr/share/kconf_update/breezehighcontrasttobreezedark.upd
 /usr/share/kconf_update/breezetobreezeclassic.upd
 /usr/share/kconf_update/breezetobreezelight.upd
-/usr/share/kservices5/breezedecorationconfig.desktop
-/usr/share/kservices5/breezestyleconfig.desktop
 /usr/share/kstyle/themes/breeze.themerc
 /usr/share/wallpapers/Next/contents/images/1024x768.png
 /usr/share/wallpapers/Next/contents/images/1080x1920.png
@@ -435,6 +437,7 @@ popd
 /usr/share/wallpapers/Next/contents/images_dark/440x247.png
 /usr/share/wallpapers/Next/contents/images_dark/5120x2880.png
 /usr/share/wallpapers/Next/contents/images_dark/720x1440.png
+/usr/share/wallpapers/Next/contents/screenshot.png
 /usr/share/wallpapers/Next/metadata.json
 
 %files dev
@@ -445,9 +448,10 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.26.5
-/usr/lib64/qt5/plugins/kstyle_breeze_config.so
+/usr/lib64/libbreezecommon5.so.5.27.0
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
+/usr/lib64/qt5/plugins/plasma/kcms/breeze/kcm_breezedecoration.so
+/usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/breezestyleconfig.so
 /usr/lib64/qt5/plugins/styles/breeze.so
 
 %files license
