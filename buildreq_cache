@@ -1,6 +1,3 @@
-5.27.0
+5.27.1
 frameworkintegration-dev
 kirigami2-dev
-kwindowsystem-dev
-mesa-dev
-pkgconfig(x11)
