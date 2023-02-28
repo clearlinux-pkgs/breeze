@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : breeze
-Version  : 5.27.1
-Release  : 87
-URL      : https://download.kde.org/stable/plasma/5.27.1/breeze-5.27.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.27.1/breeze-5.27.1.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.27.1/breeze-5.27.1.tar.xz.sig
+Version  : 5.27.2
+Release  : 88
+URL      : https://download.kde.org/stable/plasma/5.27.2/breeze-5.27.2.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.2/breeze-5.27.2.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.2/breeze-5.27.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-3.0 MIT
@@ -96,15 +96,15 @@ locales components for the breeze package.
 
 
 %prep
-%setup -q -n breeze-5.27.1
-cd %{_builddir}/breeze-5.27.1
+%setup -q -n breeze-5.27.2
+cd %{_builddir}/breeze-5.27.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1677193588
+export SOURCE_DATE_EPOCH=1677599079
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -120,7 +120,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1677193588
+export SOURCE_DATE_EPOCH=1677599079
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
 cp %{_builddir}/breeze-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/breeze/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
@@ -445,7 +445,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libbreezecommon5.so.5
-/usr/lib64/libbreezecommon5.so.5.27.1
+/usr/lib64/libbreezecommon5.so.5.27.2
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /usr/lib64/qt5/plugins/plasma/kcms/breeze/kcm_breezedecoration.so
 /usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/breezestyleconfig.so
