@@ -7,7 +7,7 @@
 #
 Name     : breeze
 Version  : 5.27.5
-Release  : 91
+Release  : 92
 URL      : https://download.kde.org/stable/plasma/5.27.5/breeze-5.27.5.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.27.5/breeze-5.27.5.tar.xz
 Source1  : https://download.kde.org/stable/plasma/5.27.5/breeze-5.27.5.tar.xz.sig
@@ -105,7 +105,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684787315
+export SOURCE_DATE_EPOCH=1685485996
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -138,7 +138,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684787315
+export SOURCE_DATE_EPOCH=1685485996
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/breeze
 cp %{_builddir}/breeze-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/breeze/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
@@ -470,7 +470,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libbreezecommon5.so.5
 /V3/usr/lib64/libbreezecommon5.so.5.27.5
 /V3/usr/lib64/qt5/plugins/org.kde.kdecoration2/breezedecoration.so
 /V3/usr/lib64/qt5/plugins/plasma/kcms/breeze/kcm_breezedecoration.so
