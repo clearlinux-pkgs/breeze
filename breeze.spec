@@ -9,7 +9,7 @@
 #
 Name     : breeze
 Version  : 6.1.5
-Release  : 116
+Release  : 117
 URL      : https://download.kde.org/stable/plasma/6.1.5/breeze-6.1.5.tar.xz
 Source0  : https://download.kde.org/stable/plasma/6.1.5/breeze-6.1.5.tar.xz
 Source1  : https://download.kde.org/stable/plasma/6.1.5/breeze-6.1.5.tar.xz.sig
